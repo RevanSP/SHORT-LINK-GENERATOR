@@ -144,60 +144,16 @@ class ShortlinkGenerator {
 
     shortlinkInput.value = shortlink;
     this.resultContainer.classList.remove('hidden');
-    this.showToast('Shortlink generated ! Copied to clipboard.', 'success');
-    navigator.clipboard.writeText(shortlink);
   }
 
   private showError(message: string): void {
     this.errorText.textContent = message;
     this.errorText.classList.remove('hidden');
     this.resultContainer.classList.add('hidden');
-    this.showToast(message, 'error');
   }
 
   private hideError(): void {
     this.errorText.classList.add('hidden');
-  }
-
-  private showToast(message: string, type: 'success' | 'error'): void {
-    const toastContainer = document.querySelector<HTMLDivElement>('#toastContainer');
-    if (!toastContainer) return;
-
-    const existingToast = toastContainer.querySelector('.toast');
-    if (existingToast) {
-      existingToast.classList.remove('opacity-100');
-      existingToast.classList.add('opacity-0');
-      setTimeout(() => {
-        existingToast.remove();
-      }, 1000);
-    }
-
-    const toast = document.createElement('div');
-    toast.classList.add(
-      'alert',
-      type === 'success' ? 'alert-success' : 'alert-error',
-      'mb-4',
-      'w-full',
-      'transition-opacity',
-      'duration-1000',
-      'ease-out',
-      'opacity-100',
-      'toast'
-    );
-    toast.innerHTML = `
-      <span>${message}</span>
-    `;
-
-    toastContainer.appendChild(toast);
-
-    setTimeout(() => {
-      toast.classList.remove('opacity-100');
-      toast.classList.add('opacity-0');
-    }, 3000);
-
-    setTimeout(() => {
-      toast.remove();
-    }, 4000);
   }
 
   private async copyToClipboard(): Promise<void> {
@@ -208,9 +164,9 @@ class ShortlinkGenerator {
 
     try {
       await navigator.clipboard.writeText(shortlinkInput.value);
-      this.showToast('Shortlink copied to clipboard !', 'success');
+      this.showResult('Shortlink copied to clipboard!');
     } catch (err) {
-      this.showToast('Failed to copy to clipboard', 'error');
+      this.showError('Failed to copy to clipboard');
     }
   }
 }
