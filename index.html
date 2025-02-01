@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHORTLINK GENERATOR</title>
+  <link rel="icon" href="/android-chrome-512x512.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body class="h-screen bg-base-300 flex items-center justify-center">
+  <div class="card bg-base-100 w-96 p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none">
+    <h2 class="text-xl font-semibold mb-6 text-center">SHORTLINK GENERATOR</h2>
+    <label
+      class="input input-bordered bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none mb-4 flex items-center gap-2 input-sm">
+      <i class="bi bi-link-45deg"></i>
+      <input type="text" class="grow" id="url" placeholder="Enter URL" />
+    </label>
+    <label
+      class="input input-bordered bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none mb-4 flex items-center gap-2 input-sm">
+      <i class="bi bi-quote"></i>
+      <input type="text" class="grow" id="alias" placeholder="Custom Alias (optional)" />
+    </label>
+    <div class="flex items-center gap-3 mb-4">
+      <label
+        class="input input-bordered bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none flex items-center gap-2 input-sm grow">
+        <i class="bi bi-key"></i>
+        <input type="password" class="grow" id="password" placeholder="Password (optional)" />
+      </label>
+      <button
+        class="btn bg-base-300 btn-sm shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none btn-square tooltip tooltip-left before:w-[10rem] before:content-[attr(data-tip)]"
+        data-tip="Password must be at least 8 characters long, contain a letter, a number, and a special character ('@' or '.'), and cannot have consecutive special characters.">
+        <i class="bi bi-info-circle"></i>
+      </button>
+    </div>
+    <label
+      class="input input-bordered bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none mb-4 flex items-center gap-2 input-sm">
+      <i class="bi bi-hand-index-thumb"></i>
+      <input type="number" class="grow" id="max-clicks" placeholder="Max Clicks (optional)" />
+    </label>
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span class="label-text">Block Bots</span>
+        <input type="checkbox" id="block-bots"
+          class="checkbox border-2 border-black rounded-none bg-base-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -mr-1 checkbox-xs" />
+      </label>
+    </div>
+    <button id="generateBtn"
+      class="btn bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none w-full flex items-center justify-center mt-3">
+      <i class="fa-solid fa-download"></i> Generate Shortlink
+    </button>
+    <div id="error"
+      class="alert rounded mt-5 hidden bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none">
+      <span id="errorMessage"></span>
+    </div>
+    <div id="result" class="hidden mt-6">
+      <input id="shortlink" type="text" readonly
+        class="input input-bordered w-full mb-4 text-center bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none" />
+      <button id="copyBtn"
+        class="btn bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none w-full flex items-center justify-center">
+        <i class="fas fa-copy mr-2"></i> Copy to Clipboard
+      </button>
+    </div>
+
+    <div class="flex justify-center space-x-4 mt-8">
+      <a href="https://www.instagram.com/m9nokuro"
+        class="btn btn-white border-2 rounded border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+        <i class="bi bi-instagram text-2xl"></i>
+      </a>
+      <a href="https://github.com/RevanSP"
+        class="btn btn-white border-2 rounded border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+        <i class="bi bi-github text-2xl"></i>
+      </a>
+      <a href="https://web.facebook.com/profile.php?id=100082958149027&_rdc=1&_rdr"
+        class="btn btn-white border-2 rounded border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+        <i class="bi bi-facebook text-2xl"></i>
+      </a>
+    </div>
+    <h3 class="text-center mt-6 font-bold">
+      ReiivanTheOnlyOne .
+    </h3>
+  </div>
+
+  <script src="public/script.js">
+  </script>
+</body>
+
+</html>
