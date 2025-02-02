@@ -5,13 +5,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHORTLINK GENERATOR</title>
-  <link rel="icon" href="/android-chrome-512x512.png" type="image/png">
+  <link rel="icon" href="public/android-chrome-512x512.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="public/style.css">
 </head>
 
 <body class="h-screen bg-base-300 flex items-center justify-center">
+  <dialog id="my_modal_3" class="modal">
+    <div
+      class="modal-box border-2 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]  w-11/12 max-w-full">
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      </form>
+      <h3 class="text-lg font-bold mb-4">STATS</h3>
+      <div class="join w-full rounded-none">
+        <input id="aliasStats"
+          class="input input-bordered join-item text-xs bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black w-full"
+          placeholder="https://spoo.me/Alias" />
+        <input id="passwordStats"
+          class="input input-bordered join-item text-xs bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black"
+          placeholder="Password (optional)" />
+        <button id="getStatsBtn"
+          class="btn join-item rounded-none bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black"><i
+            class="bi bi-send"></i></button>
+      </div>
+      <div id="statsResult" class="hidden mt-4 card bg-base-100 shadow-xl">
+     
+      <div id="error" class="hidden text-red-500 mt-4"></div>
+    </div>
+  </dialog>
   <div class="card bg-base-100 w-96 p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none">
     <h2 class="text-xl font-semibold mb-6 text-center">SHORTLINK GENERATOR</h2>
     <label
@@ -48,10 +71,15 @@
           class="checkbox border-2 border-black rounded-none bg-base-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -mr-1 checkbox-xs" />
       </label>
     </div>
-    <button id="generateBtn"
-      class="btn bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none w-full flex items-center justify-center mt-3">
-      <i class="fa-solid fa-download"></i> Generate Shortlink
-    </button>
+    <div class="flex space-x-3">
+      <button
+        class="btn join-item btn bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none flex items-center justify-center mt-3"
+        onclick="my_modal_3.showModal()">Stats Shortlink</button>
+      <button id="generateBtn"
+        class="btn join-item btn bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none flex items-center justify-center mt-3">
+        <i class="fa-solid fa-download"></i> Generate Shortlink
+      </button>
+    </div>
     <div id="error"
       class="alert rounded mt-5 hidden bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none">
       <span id="errorMessage"></span>
